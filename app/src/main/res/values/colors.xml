@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#0fb0a0</color>
+    <color name="colorPrimaryDark">#0fb0a0</color>
+    <color name="colorAccent">#6dd484</color>
+
+    //-------------------------------------------------------------------
+    <color name="main_bg_color">#0e1d30</color>
+    <color name="text_color_yellow">#ffd304</color>
+    <color name="details_bg_color">#1a3d38</color>
+    //-------------------------------------------------------------------------------------------
+
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="grey_200">#EEEEEE</color>
+    <color name="textcolor">#f2f2f2</color>
+    <item name="text_color" type="color">#6c6c6c</item>
+    <color name="red">#fb1311</color>
+    <color name="title_bar">#0b232d</color>
+    <color name="colorPrimaryLight">#ff63a4ff</color>
+    <color name="textColorPrimary">#F5272727</color>
+    <color name="textColorSecondary">#F52C2C2C</color>
+    <color name="textColorSmall">#F5313030</color>
+    <color name="navigationBarColor">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent1">#79000000</color>
+    <color name="transparent_white">#9FFFFFFF</color>
+    <color name="dark_pink">#ff6699</color>
+    <color name="divider">#E0E0E0</color>
+
+    <color name="blue">#1b67cc</color>
+    <color name="green">#6dd484</color>
+    <color name="dark_green">#0fb0a0</color>
+    <color name="tolbar_color">#0fb0a0</color>//#0fb0a0
+<!--
+    <color name="green">#009916</color>
+    <color name="dark_green">#1eb69c</color>
+    <color name="blue">#1b67cc</color>-->
+
+</resources>

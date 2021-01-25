@@ -1,0 +1,2 @@
+rootProject.name = "NSD PAY"
+include ':app'

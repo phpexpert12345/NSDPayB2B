@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "133750798883",
+    "firebase_url": "https://blandy-7cf73.firebaseio.com",
+    "project_id": "blandy-7cf73",
+    "storage_bucket": "blandy-7cf73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133750798883:android:fc97296384108a20b34f96",
+        "android_client_info": {
+          "package_name": "com.example.nsd.pay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "133750798883-c6hhosvorbfkrql461rkdc92b936sk69.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nsd.pay",
+            "certificate_hash": "952ad14509fd72fc461e733bbb6b13416aa735f1"
+          }
+        },
+        {
+          "client_id": "133750798883-tpeg3qhe7kin6qdissedlta5402jqtkd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1oAYQuoCuKE_ij7_GeingK4Mvp5aE1W4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "133750798883-tpeg3qhe7kin6qdissedlta5402jqtkd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
