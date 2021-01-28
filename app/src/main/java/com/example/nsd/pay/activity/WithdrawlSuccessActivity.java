@@ -36,13 +36,13 @@ public class WithdrawlSuccessActivity extends AppCompatActivity implements View.
         img_back.setOnClickListener(this);
         bt_goto_home.setOnClickListener(this);
 
-        YoYo.with(Techniques.RollIn)
-                .duration(1800)
+        YoYo.with(Techniques.Landing)//Landing FadeIn
+                .duration(3600)
                 .repeat(0)
                 .playOn(img_background);
 
-        YoYo.with(Techniques.RollIn)
-                .duration(1800)
+        YoYo.with(Techniques.Landing)
+                .duration(3600)
                 .repeat(0)
                 .playOn(img_right);
     }
@@ -55,8 +55,9 @@ public class WithdrawlSuccessActivity extends AppCompatActivity implements View.
                 break;
 
             case R.id.bt_goto_home:
-                startActivity(new Intent(WithdrawlSuccessActivity.this, AddBeneficiaryActivity.class).
-                        addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                startActivity(new Intent(WithdrawlSuccessActivity.this, MainActivity.class).
+                        addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                finish();
                 break;
         }
     }

@@ -31,6 +31,7 @@
 
     <color name="blue">#1b67cc</color>
     <color name="green">#6dd484</color>
+    <color name="light_green">#F8ECFFF0</color>
     <color name="dark_green">#0fb0a0</color>
     <color name="tolbar_color">#0fb0a0</color>//#0fb0a0
 <!--

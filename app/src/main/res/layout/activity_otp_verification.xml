@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_parant"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".activity.OtpVerificationActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/common_toolbar" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/sp_15">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sp_5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/diemen_150dp"
+                        android:layout_height="@dimen/diemen_150dp"
+                        android:src="@mipmap/verification_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/sp_20"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:text="A Verification Code has\nBeen sent to"
+                        android:textColor="@color/dark_green"
+                        android:textSize="@dimen/sp_18" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/sp_5"
+                        android:fontFamily="@font/poppins_light"
+                        android:gravity="center"
+                        android:text="+91 8959 *****"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_15" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sp_5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.chaos.view.PinView
+                        android:id="@+id/pinView"
+                        style="@style/PinWidget.PinView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:hint="****"
+                        android:inputType="textPassword"
+                        android:padding="@dimen/sp_10"
+                        android:textColor="@color/text_color"
+                        android:textSize="@dimen/sp_14"
+                        app:hideLineWhenFilled="false"
+                        app:itemCount="4"
+                        app:itemSpacing="@dimen/sp_5"
+                        app:lineColor="@color/divider"
+                        app:viewType="line" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sp_20"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_light"
+                        android:gravity="center"
+                        android:text="Send Again OTP ( 30 )"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_16" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/diemen_40dp"
+                    android:paddingLeft="@dimen/diemen_50dp"
+                    android:paddingRight="@dimen/diemen_50dp">
+
+                    <Button
+                        android:id="@+id/bt_submit"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/diemen_40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/sp_1"
+                        android:background="@drawable/green_round_bg"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Next"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_16" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sp_25"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:text="Change Phone Number"
+                        android:textAllCaps="true"
+                        android:textColor="@color/green"
+                        android:textSize="@dimen/sp_16" />
+
+                    <View
+                        android:layout_width="188sp"
+                        android:layout_height="1dp"
+                        android:background="@color/divider" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -4,15 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/splash_bg_updated"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="@color/white"
     tools:context=".activity.SplashActivity">
 
+    <ImageView
+        android:layout_width="@dimen/diemen_150dp"
+        android:layout_height="@dimen/diemen_150dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/logo_icon" />
 
     <ImageView
+        android:id="@+id/img_tint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_background" />
+        android:src="@mipmap/splash_tint_icon" />
 
 </LinearLayout>

@@ -197,7 +197,7 @@
                 android:layout_marginBottom="@dimen/sp_1"
                 android:background="@drawable/green_round_bg"
                 android:fontFamily="@font/poppins_medium"
-                android:text="Goto Home"
+                android:text="Go to Home"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp_16" />
