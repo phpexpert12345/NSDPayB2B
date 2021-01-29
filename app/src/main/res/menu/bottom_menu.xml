@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/b_qr_scan"
+        android:enabled="true"
+        android:icon="@mipmap/show_password48"
+        android:title="Scan Qr"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/b_shop"
+        android:enabled="true"
+        android:icon="@mipmap/shop_icon"
+        android:title="Shop"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/b_home"
+        android:enabled="true"
+        android:icon="@mipmap/home_icon"
+        android:title="Home"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/b_bank"
+        android:enabled="true"
+        android:icon="@mipmap/bank_icon"
+        android:title="Bank"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/b_profile"
+        android:enabled="true"
+        android:icon="@mipmap/user_icon"
+        android:title="Me"
+        app:showAsAction="ifRoom" />
+</menu>

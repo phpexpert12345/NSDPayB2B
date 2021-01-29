@@ -16,15 +16,15 @@
             android:id="@+id/head"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="center|start"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/nav_icon"
-                android:layout_width="@dimen/sp_22"
-                android:layout_height="@dimen/sp_18"
+                android:layout_width="@dimen/sp_20"
+                android:layout_height="@dimen/sp_20"
                 android:layout_marginLeft="10dp"
-                android:src="@drawable/navigation_menu_btn_new"
+                android:src="@mipmap/hamburger_icon"
                 app:tint="@color/black" />
 
             <LinearLayout
@@ -55,17 +55,16 @@
                     android:gravity="end|center">
 
                     <ImageView
-                        android:layout_width="@dimen/sp_25"
-                        android:layout_height="@dimen/sp_25"
-                        android:layout_marginRight="@dimen/sp_10"
-                        android:src="@drawable/h_notification"
+                        android:layout_width="@dimen/sp_22"
+                        android:layout_height="@dimen/sp_22"
+                        android:layout_marginRight="@dimen/sp_3"
+                        android:src="@mipmap/scan_icon"
                         app:tint="@color/black" />
 
                     <ImageView
-                        android:layout_width="@dimen/sp_25"
-                        android:layout_height="@dimen/sp_25"
-                        android:src="@drawable/h_notification"
-                        app:tint="@color/black" />
+                        android:layout_width="@dimen/sp_22"
+                        android:layout_height="@dimen/sp_22"
+                        android:src="@mipmap/mike_icon" />
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -74,15 +73,14 @@
 
                         <ImageView
                             android:id="@+id/img_notificatio"
-                            android:layout_width="@dimen/sp_25"
-                            android:layout_height="@dimen/sp_25"
-                            android:src="@drawable/h_notification"
-                            app:tint="@color/black" />
+                            android:layout_width="@dimen/sp_22"
+                            android:layout_height="@dimen/sp_22"
+                            android:src="@mipmap/notification_icon" />
 
                         <TextView
                             android:id="@+id/tv_cnt_badge"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="@dimen/sp_18"
+                            android:layout_height="@dimen/sp_18"
                             android:layout_gravity="center_vertical|right|top"
                             android:layout_marginLeft="@dimen/sp_15"
                             android:background="@drawable/badge_count_background"
@@ -141,11 +139,10 @@
                     android:background="@color/text_color" />
 
                 <ImageView
-                    android:layout_width="@dimen/sp_22"
-                    android:layout_height="@dimen/sp_22"
-                    android:layout_marginRight="@dimen/sp_10"
-                    android:src="@drawable/search_icon"
-                    app:tint="@color/black" />
+                    android:layout_width="@dimen/sp_20"
+                    android:layout_height="@dimen/sp_20"
+                    android:layout_marginRight="@dimen/sp_5"
+                    android:src="@mipmap/camera_icon" />
 
             </LinearLayout>
 

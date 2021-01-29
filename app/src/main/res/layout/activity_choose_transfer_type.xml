@@ -84,7 +84,7 @@
                                 android:layout_height="match_parent"
                                 android:fontFamily="@font/poppins_light"
                                 android:gravity="center|start"
-                                android:text="Transfer To NSD Pay Wallet"
+                                android:text="Transfer To NSDPay Wallet"
                                 android:textColor="@color/blue"
                                 android:textSize="@dimen/sp_16" />
 

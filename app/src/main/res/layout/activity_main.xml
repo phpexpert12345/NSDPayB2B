@@ -9,11 +9,191 @@
     tools:context=".activity.MainActivity"
     tools:openDrawer="start">
 
-
-    <include
-        layout="@layout/app_bar_main"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/ll_parant"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                layout="@layout/app_bar_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/diemen_60dp"
+                    android:background="@drawable/green_rectangle_bg"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/ll_b_qr_scn"
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/sp_5"
+                        android:layout_weight="0.2"
+                        android:alpha="128"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/sp_5">
+
+                        <ImageView
+                            android:layout_width="@dimen/sp_20"
+                            android:layout_height="@dimen/sp_20"
+                            android:src="@mipmap/scan_icon"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Scan Qr"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_12" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_b_shop"
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/sp_5">
+
+                        <ImageView
+                            android:layout_width="@dimen/sp_20"
+                            android:layout_height="@dimen/sp_20"
+                            android:src="@mipmap/shop_icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/sp_5"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Shop"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_12" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_b_home"
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/diemen_55dp"
+                            android:layout_height="@dimen/diemen_55dp"
+                            android:layout_marginTop="@dimen/sp_3"
+                            android:layout_marginBottom="@dimen/sp_3"
+                            android:background="@drawable/black_round_bg"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/sp_5">
+
+                            <ImageView
+                                android:layout_width="@dimen/sp_17"
+                                android:layout_height="@dimen/sp_17"
+                                android:src="@mipmap/home_icon" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/sp_5"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="Home"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_11" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_b_bank"
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/sp_5">
+
+                        <ImageView
+                            android:layout_width="@dimen/sp_20"
+                            android:layout_height="@dimen/sp_20"
+                            android:src="@mipmap/bank_icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/sp_5"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Bank"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_12" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_b_profile"
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/sp_5"
+                        android:layout_weight="0.2"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/sp_5">
+
+                        <ImageView
+                            android:layout_width="@dimen/sp_20"
+                            android:layout_height="@dimen/sp_20"
+                            android:src="@mipmap/user_icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/sp_5"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Me"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_12" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!--      <com.google.android.material.bottomnavigation.BottomNavigationView
+                      android:id="@+id/bottom_navigation"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentBottom="true"
+                      android:layout_gravity="bottom"
+                      android:padding="0dp"
+                      android:showAsAction="always|withText"
+                      app:itemIconTint="@color/white"
+                      app:itemTextColor="@color/white"
+                      app:labelVisibilityMode="labeled"
+                      app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+                      app:menu="@menu/bottom_menu" />-->
+
+        </RelativeLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"

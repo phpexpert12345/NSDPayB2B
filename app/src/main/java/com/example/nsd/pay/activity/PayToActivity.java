@@ -24,7 +24,7 @@ public class PayToActivity extends AppCompatActivity implements View.OnClickList
 
         img_back = findViewById(R.id.img_back);
         tv_toolbar_name = findViewById(R.id.tv_toolbar_name);
-        tv_toolbar_name.setText("Transfer to NSD Pay Wallet");
+        tv_toolbar_name.setText("Transfer to NSDPay Wallet");
         bt_next = findViewById(R.id.bt_next);
 
         img_back.setOnClickListener(this);

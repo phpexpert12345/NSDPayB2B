@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class AllListData {
+    public int drawable;
     public String id;
 
     public static Comparator<AllListData> sortByGrpId = (s1, s2) -> {

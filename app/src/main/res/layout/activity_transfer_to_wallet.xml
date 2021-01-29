@@ -87,7 +87,7 @@
                                 android:layout_height="match_parent"
                                 android:fontFamily="@font/poppins_regular"
                                 android:gravity="center|start"
-                                android:text="NSD Pay Wallet"
+                                android:text="NSDPay Wallet"
                                 android:textColor="@color/blue"
                                 android:textSize="@dimen/sp_16" />
 

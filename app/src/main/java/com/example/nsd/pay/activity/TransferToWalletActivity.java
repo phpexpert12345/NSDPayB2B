@@ -33,7 +33,7 @@ public class TransferToWalletActivity extends AppCompatActivity implements View.
 
         img_back = findViewById(R.id.img_back);
         tv_toolbar_name = findViewById(R.id.tv_toolbar_name);
-        tv_toolbar_name.setText("Transfer to NSD Pay Wallet");
+        tv_toolbar_name.setText("Transfer to NSDPay Wallet");
         bt_confirm = findViewById(R.id.bt_confirm);
         bt_cancel = findViewById(R.id.bt_cancel);
 
