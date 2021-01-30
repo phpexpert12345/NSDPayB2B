@@ -39,7 +39,7 @@ public class SplashActivity extends AppCompatActivity {
         handler = new Handler();
         handler.postDelayed(() -> {
 
-            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+            startActivity(new Intent(SplashActivity.this, WalkThroughActivity.class));
             finish();
 
         }, 4000);

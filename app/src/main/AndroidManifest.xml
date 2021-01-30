@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.RechargeAndPayBillsActivity"></activity>
+        <activity android:name=".activity.RechargeAndPayBillsActivity" />
         <activity android:name=".activity.WelcomeActivity" />
         <activity android:name=".activity.OtpVerificationActivity" />
         <activity android:name=".activity.SignupActivity" />
@@ -28,13 +28,16 @@
         <activity android:name=".activity.ContactTransferActivity" />
         <activity android:name=".activity.AddRemitterActivity" />
         <activity android:name=".activity.AddBeneficiaryActivity" />
-        <activity android:name=".activity.SplashActivity"></activity>
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activity.MainActivity">
+        </activity>
+        <activity android:name=".activity.WalkThroughActivity">
         </activity>
     </application>
 
