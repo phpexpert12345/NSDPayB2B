@@ -6,25 +6,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.bumptech.glide.Glide;
 import com.example.nsd.pay.R;
+import com.example.nsd.pay.model.AllListData;
 import com.example.nsd.pay.model.PInfo;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class OfferPagerAdapter extends PagerAdapter {
+public class SubCategoryPagerAdapter extends PagerAdapter {
     // Declare Variables
     private Context context;
-    private ArrayList<PInfo> simage;
+    private List<AllListData> simage;
     private LayoutInflater inflater;
 
-    public OfferPagerAdapter(Context context, ArrayList<PInfo> simage) {
+    public SubCategoryPagerAdapter(Context context, List<AllListData> simage) {
         this.context = context;
         this.simage = simage;
     }
@@ -42,34 +44,26 @@ public class OfferPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
 
-
         // Declare Variables
-        ImageView image_pager;
-        TextView text1, text2;
-        View itemView = LayoutInflater.from(context).inflate(R.layout.offer_pager_adapter, container, false);
+        View itemView = LayoutInflater.from(context).inflate(R.layout.sub_category_pager_adapter, container, false);
+        ((ViewPager) container).addView(itemView);
 
-        image_pager = itemView.findViewById(R.id.icon);
-        text1 = itemView.findViewById(R.id.tv_text1);
-        text2 = itemView.findViewById(R.id.tv_text2);
-/*
-        Glide.with(context).load(BASE_URL + simage.get(position).image).
-                into(image_pager);*/
-        text1.setText(simage.get(position).pname);
-        text2.setText(simage.get(position).appname);
-        image_pager.setImageResource(simage.get(position).versionCode);
-        // add viewpager_item.xml to ViewPager
-        container.addView(itemView);
+        RecyclerView rv_sub_category;
+        rv_sub_category = itemView.findViewById(R.id.rv_sub_category);
+        AllItemsAdapter allItemsAdapter = new AllItemsAdapter(context, simage.get(position).pInfoList);
+        rv_sub_category.setHasFixedSize(true);
+        rv_sub_category.setLayoutManager(new GridLayoutManager(context, 4));
+
+        rv_sub_category.setAdapter(allItemsAdapter);
+        rv_sub_category.setNestedScrollingEnabled(false);
+
         return itemView;
     }
 
-/*    @Override
+    @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         // Remove viewpager_item.xml from ViewPager
         ((ViewPager) container).removeView((RelativeLayout) object);
 
-    }*/
-    @Override
-    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        ((ViewPager) container).removeView((RelativeLayout) object);
     }
 }

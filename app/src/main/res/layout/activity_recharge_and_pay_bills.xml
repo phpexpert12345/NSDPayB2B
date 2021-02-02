@@ -5,7 +5,7 @@
     android:id="@+id/ll_parant"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_too_green"
+    android:background="@color/mainBackground"
     android:orientation="vertical"
     tools:context=".activity.RechargeAndPayBillsActivity">
 
@@ -23,8 +23,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/white"
-                app:cardUseCompatPadding="true">
+                app:cardBackgroundColor="@color/white">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -330,6 +329,7 @@
                                     android:padding="3dp">
 
                                     <ImageView
+                                        android:id="@+id/ll_previous"
                                         android:layout_width="@dimen/sp_15"
                                         android:layout_height="@dimen/sp_15"
                                         android:src="@mipmap/left_icon" />
@@ -341,6 +341,7 @@
                                     android:padding="3dp">
 
                                     <ImageView
+                                        android:id="@+id/ll_next"
                                         android:layout_width="@dimen/sp_15"
                                         android:layout_height="@dimen/sp_15"
                                         android:src="@mipmap/right_bg_icon" />
@@ -353,12 +354,38 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/sp_5"
-                            android:orientation="horizontal">
+                            android:orientation="vertical">
 
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/rv_all_categories"
+                            <RelativeLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <androidx.viewpager.widget.ViewPager
+                                        android:id="@+id/subCategoryViewPager"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="400dp" />
+
+                                </LinearLayout>
+
+                                <com.google.android.material.tabs.TabLayout
+                                    android:id="@+id/sub_tab_layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_gravity="bottom|center"
+                                    android:layout_marginTop="@dimen/sp_5"
+                                    android:layout_marginBottom="@dimen/sp_5"
+                                    android:background="@color/transparent"
+                                    app:tabBackground="@drawable/tab_selector"
+                                    app:tabGravity="center"
+                                    app:tabIndicatorHeight="0dp"
+                                    app:tabMaxWidth="15dp" />
+                            </RelativeLayout>
 
                         </LinearLayout>
 
@@ -424,8 +451,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/sp_10"
-                app:cardBackgroundColor="@color/white"
-                app:cardUseCompatPadding="true">
+                app:cardBackgroundColor="@color/white">
 
                 <LinearLayout
                     android:layout_width="match_parent"

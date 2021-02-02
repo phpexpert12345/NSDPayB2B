@@ -69,7 +69,7 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:gravity="start|center">
+                        android:gravity="center">
 
                         <ImageView
                             android:id="@+id/img_notificatio"
@@ -81,8 +81,7 @@
                             android:id="@+id/tv_cnt_badge"
                             android:layout_width="@dimen/sp_18"
                             android:layout_height="@dimen/sp_18"
-                            android:layout_gravity="center_vertical|right|top"
-                            android:layout_marginLeft="@dimen/sp_15"
+                            android:layout_marginLeft="@dimen/sp_10"
                             android:background="@drawable/badge_count_background"
                             android:fontFamily="@font/poppins_regular"
                             android:gravity="center"

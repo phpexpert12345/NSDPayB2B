@@ -24,6 +24,6 @@ public class AllListData {
     public String offerPrice;
     public String offer;
 
-    public List<AllListData> dashboardChildList;
+    public List<PInfo> pInfoList;
     public List<AllListData> dashboardSubChildList;
 }

@@ -6,21 +6,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nsd.pay.R;
-import com.example.nsd.pay.adapter.AllCategoryAdapter;
 import com.example.nsd.pay.adapter.CashBackOfferAdapter;
 import com.example.nsd.pay.adapter.DiscountOfferPagerAdapter;
-import com.example.nsd.pay.adapter.MainOfferPagerAdapter;
 import com.example.nsd.pay.adapter.RechargeCategoryAdapter;
+import com.example.nsd.pay.adapter.SubCategoryPagerAdapter;
 import com.example.nsd.pay.interfaces.AllCategoryInterface;
 import com.example.nsd.pay.interfaces.CashBackOfferInterface;
 import com.example.nsd.pay.model.AllListData;
@@ -35,27 +35,25 @@ public class RechargeAndPayBillsActivity extends AppCompatActivity implements Vi
 
     public ImageView img_back;
     public TextView tv_toolbar_name;
-    public RecyclerView rv_all_categories;
-    public RecyclerView.Adapter mAllCategory;
-    public AllCategoryInterface allCategoryInterface;
-    public ArrayList<AllListData> allCategoryList = new ArrayList<>();
+    public ArrayList<AllListData> childCategoryList = new ArrayList<>();
     final long DELAY_MS = 500;// delay in milliseconds before task is to be executed
     final long PERIOD_MS = 6000; // time in milliseconds between successive task executions.
-    public ViewPager discount_viewpager;
-    int D_NUM_PAGES = 3, currentPage = 0, discountCurrentPage = 0;
+    public ViewPager discount_viewpager, subCategoryViewPager;
+    int D_NUM_PAGES = 3, CHILD_PAGES = 2, discountCurrentPage = 0;
     public Timer discount_timer;
     public ArrayList<PInfo> walkThroughList = new ArrayList<>();
     private DiscountOfferPagerAdapter discountOfferPagerAdapter;
+    private SubCategoryPagerAdapter subCategoryPagerAdapter;
     public RecyclerView rv_cashback_offer;
     public RecyclerView.Adapter mCashBackOffers;
     public CashBackOfferInterface cashBackOfferInterface;
+    public ImageView ll_previous, ll_next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recharge_and_pay_bills);
 
-        allCategoryInterface = this;
         cashBackOfferInterface = this;
         setData();
         setCategoryData();
@@ -65,12 +63,9 @@ public class RechargeAndPayBillsActivity extends AppCompatActivity implements Vi
         tv_toolbar_name.setText("Recharge & Pay Bills");
 
         discount_viewpager = findViewById(R.id.discount_viewpager);
-
-        rv_all_categories = findViewById(R.id.rv_all_categories);
-        rv_all_categories.setLayoutManager(new GridLayoutManager(getApplicationContext(), 4));
-
-        mAllCategory = new RechargeCategoryAdapter(RechargeAndPayBillsActivity.this, allCategoryList, allCategoryInterface);
-        rv_all_categories.setAdapter(mAllCategory);
+        subCategoryViewPager = findViewById(R.id.subCategoryViewPager);
+        ll_previous = findViewById(R.id.ll_previous);
+        ll_next = findViewById(R.id.ll_next);
 
         rv_cashback_offer = findViewById(R.id.rv_cashback_offer);
         rv_cashback_offer.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
@@ -79,10 +74,12 @@ public class RechargeAndPayBillsActivity extends AppCompatActivity implements Vi
         mCashBackOffers = new CashBackOfferAdapter(RechargeAndPayBillsActivity.this, cashBackOfferInterface);
         rv_cashback_offer.setAdapter(mCashBackOffers);
 
-
         assignDiscountViewPager();
+        assignSubCategoryViewPager();
 
         img_back.setOnClickListener(this);
+        ll_previous.setOnClickListener(this);
+        ll_next.setOnClickListener(this);
     }
 
     @Override
@@ -90,6 +87,18 @@ public class RechargeAndPayBillsActivity extends AppCompatActivity implements Vi
         switch (view.getId()) {
             case R.id.img_back:
                 finish();
+                break;
+            case R.id.ll_previous:
+                int pre = subCategoryViewPager.getCurrentItem();
+                pre--;
+                subCategoryViewPager.setCurrentItem(pre);
+                // subCategoryViewPager.setCurrentItem(currentPage--, true);
+                break;
+            case R.id.ll_next:
+                int nex = subCategoryViewPager.getCurrentItem();
+                nex++;
+                subCategoryViewPager.setCurrentItem(nex);
+                //  subCategoryViewPager.setCurrentItem(currentPage++, true);
                 break;
         }
     }
@@ -141,6 +150,36 @@ public class RechargeAndPayBillsActivity extends AppCompatActivity implements Vi
         }, DELAY_MS, PERIOD_MS);
     }
 
+    private void assignSubCategoryViewPager() {
+        try {
+            subCategoryPagerAdapter = new SubCategoryPagerAdapter(RechargeAndPayBillsActivity.this, childCategoryList);
+            subCategoryViewPager.setAdapter(subCategoryPagerAdapter);
+            TabLayout tabLayout = findViewById(R.id.sub_tab_layout);
+            if (CHILD_PAGES > 1) {
+                tabLayout.setupWithViewPager(subCategoryViewPager, true);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        /*After setting the adapter use the timer */
+       /* final Handler handler = new Handler();
+        final Runnable Update = () -> {
+            if (currentPage == CHILD_PAGES) {
+                currentPage = 0;
+            }
+            subCategoryViewPager.setCurrentItem(currentPage++, true);
+        };
+
+        child_timer = new Timer(); // This will create a new Thread
+        child_timer.schedule(new TimerTask() { // task to be scheduled
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, DELAY_MS, PERIOD_MS);*/
+    }
+
     private void setData() {
         PInfo pInfo = new PInfo();
         pInfo.versionCode = R.drawable.loan_section_banner;
@@ -156,51 +195,92 @@ public class RechargeAndPayBillsActivity extends AppCompatActivity implements Vi
     }
 
     private void setCategoryData() {
-        AllListData list1 = new AllListData();
-        list1.name = "Recharge & Pay Bills";
-        list1.drawable = R.mipmap.recharge_pay_bills_icon;
-        allCategoryList.add(list1);
 
-        AllListData list2 = new AllListData();
-        list2.name = "Financial Service\n(DMT)";
-        list2.drawable = R.mipmap.payments_icon;
-        allCategoryList.add(list2);
+        ArrayList<PInfo> pInfos = new ArrayList<>();
+        AllListData data = new AllListData();
+        PInfo mPre = new PInfo();
+        mPre.pname = "Mobile Prepaid";
+        mPre.versionCode = R.mipmap.mobile_icon;
+        pInfos.add(mPre);
 
-        AllListData list3 = new AllListData();
-        list3.name = "AePs";
-        list3.drawable = R.mipmap.aeps_icon;
-        allCategoryList.add(list3);
+        PInfo mPos = new PInfo();
+        mPos.pname = "Mobile Postpaid";
+        mPos.versionCode = R.mipmap.mobile_icon;
+        pInfos.add(mPos);
 
-        AllListData list4 = new AllListData();
-        list4.name = "Travels";
-        list4.drawable = R.mipmap.travel_icon;
-        allCategoryList.add(list4);
+        PInfo dTh = new PInfo();
+        dTh.pname = "DTH";
+        dTh.versionCode = R.mipmap.cable_icon;
+        pInfos.add(dTh);
 
-        AllListData list5 = new AllListData();
-        list5.name = "NSDL Pan Card";
-        list5.drawable = R.mipmap.nsdl_pancard_icon;
-        allCategoryList.add(list5);
+        PInfo dataCable = new PInfo();
+        dataCable.pname = "Data Card";
+        dataCable.versionCode = R.mipmap.data_card_icon;
+        pInfos.add(dataCable);
 
-        AllListData list6 = new AllListData();
-        list6.name = "Prepaid Cards";
-        list6.drawable = R.mipmap.nsdl_pancard_icon;
-        allCategoryList.add(list6);
+        PInfo elecBill = new PInfo();
+        elecBill.pname = "Electric Bill";
+        elecBill.versionCode = R.mipmap.electric_icon;
+        pInfos.add(elecBill);
 
+        PInfo waterBills = new PInfo();
+        waterBills.pname = "Water Bill";
+        waterBills.versionCode = R.mipmap.water_icon;
+        pInfos.add(waterBills);
 
-        AllListData list7 = new AllListData();
-        list7.name = "Movies & Events";
-        list7.drawable = R.mipmap.movies_events_icon;
-        allCategoryList.add(list7);
+        PInfo pipeGas = new PInfo();
+        pipeGas.pname = "Pipe Gas Bill";
+        pipeGas.versionCode = R.mipmap.pipe_icon;
+        pInfos.add(pipeGas);
 
-        AllListData list8 = new AllListData();
-        list8.name = "Wallet to Wallet";
-        list8.drawable = R.mipmap.wallet_to_wallet_icon;
-        allCategoryList.add(list8);
+        PInfo broadbandLand = new PInfo();
+        broadbandLand.pname = "Broadband\nLandline";
+        broadbandLand.versionCode = R.mipmap.broadband_icon;
+        pInfos.add(broadbandLand);
 
-        AllListData list9 = new AllListData();
-        list9.name = "Fund Request";
-        list9.drawable = R.mipmap.fund_request_icon;
-        allCategoryList.add(list9);
+        PInfo metro = new PInfo();
+        metro.pname = "Metro";
+        metro.versionCode = R.mipmap.metro_icon;
+        pInfos.add(metro);
+
+        PInfo fastTag = new PInfo();
+        fastTag.pname = "Fastag Recharge";
+        fastTag.versionCode = R.mipmap.fast_tag_icon;
+        pInfos.add(fastTag);
+
+        PInfo iocl = new PInfo();
+        iocl.pname = "IOCL Rewards";
+        iocl.versionCode = R.mipmap.rewards_icon;
+        pInfos.add(iocl);
+
+        PInfo bookCylinder = new PInfo();
+        bookCylinder.pname = "Book Cylinder";
+        bookCylinder.versionCode = R.mipmap.cylinder_icon;
+        pInfos.add(bookCylinder);
+
+        data.pInfoList = pInfos;
+        childCategoryList.add(data);
+
+        ArrayList<PInfo> pInfos2 = new ArrayList<>();
+        AllListData data2 = new AllListData();
+
+        PInfo pInfo22 = new PInfo();
+        pInfo22.pname = "Book Movies";
+        pInfo22.versionCode = R.mipmap.recharge_pay_bills_icon;
+        pInfos2.add(pInfo22);
+
+        PInfo pInfo33 = new PInfo();
+        pInfo33.pname = "Amazon Prime";
+        pInfo33.versionCode = R.mipmap.recharge_pay_bills_icon;
+        pInfos2.add(pInfo33);
+
+        PInfo pInfo44 = new PInfo();
+        pInfo44.pname = "Phone";
+        pInfo44.versionCode = R.mipmap.recharge_pay_bills_icon;
+        pInfos2.add(pInfo44);
+
+        data2.pInfoList = pInfos2;
+        childCategoryList.add(data2);
     }
 
     @Override
