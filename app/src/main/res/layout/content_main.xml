@@ -107,6 +107,7 @@
                                     android:paddingBottom="@dimen/sp_5">
 
                                     <LinearLayout
+                                        android:id="@+id/ll_payment"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="center"
@@ -151,6 +152,7 @@
                                 android:orientation="vertical">
 
                                 <LinearLayout
+                                    android:id="@+id/ll_fund_transfer"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal"
@@ -202,6 +204,7 @@
                                 android:orientation="vertical">
 
                                 <LinearLayout
+                                    android:id="@+id/ll_send_money"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal"
@@ -254,6 +257,7 @@
                                 android:orientation="vertical">
 
                                 <LinearLayout
+                                    android:id="@+id/ll_add_money"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal"

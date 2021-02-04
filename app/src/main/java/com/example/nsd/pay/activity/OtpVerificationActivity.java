@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.nsd.pay.BaseApp;
 import com.example.nsd.pay.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 

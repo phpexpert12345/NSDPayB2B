@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nsd.pay.BaseApp;
 import com.example.nsd.pay.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.hbb20.CountryCodePicker;
@@ -24,6 +25,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public BottomSheetBehavior clickPaymentBySheetBehavior;
     public Button bt_cancel, bt_next;
     public CountryCodePicker codePicker;
+    public LinearLayout ll_register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +42,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         bt_cancel = findViewById(R.id.bt_cancel);
         bt_next = findViewById(R.id.bt_next);
         codePicker = findViewById(R.id.ccpicker);
+        ll_register = findViewById(R.id.ll_register);
 
         img_back.setOnClickListener(this);
         bt_submit.setOnClickListener(this);
         bt_cancel.setOnClickListener(this);
         bt_next.setOnClickListener(this);
+        ll_register.setOnClickListener(this);
         codePicker.setOnCountryChangeListener(this);
     }
 
@@ -61,11 +65,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             case R.id.bt_next:
                 clickPaymentBySheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                startActivity(new Intent(this, SignupActivity.class));
+                //  BaseApp.getInstance().sharedPref().setString(BaseApp.getInstance().sharedPref().COMMON_OTP_CHECK, "login");
+                startActivity(new Intent(this, LoginWithPinFingerActivity.class));
                 break;
 
             case R.id.bt_cancel:
                 clickPaymentBySheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                break;
+
+            case R.id.ll_register:
+                startActivity(new Intent(this, SignupActivity.class));
                 break;
         }
     }

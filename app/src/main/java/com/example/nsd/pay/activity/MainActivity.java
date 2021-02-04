@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public RecyclerView rv_cashback_offer;
     public RecyclerView.Adapter mCashBackOffers;
     public CashBackOfferInterface cashBackOfferInterface;
+    public LinearLayout ll_payment, ll_fund_transfer, ll_send_money, ll_add_money;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,14 +138,44 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mCashBackOffers = new CashBackOfferAdapter(MainActivity.this, cashBackOfferInterface);
         rv_cashback_offer.setAdapter(mCashBackOffers);
 
+        ll_payment = findViewById(R.id.ll_payment);
+        ll_fund_transfer = findViewById(R.id.ll_fund_transfer);
+        ll_send_money = findViewById(R.id.ll_send_money);
+        ll_add_money = findViewById(R.id.ll_add_money);
+
         ll_b_profile.setOnClickListener(this);
         ll_b_bank.setOnClickListener(this);
         ll_b_home.setOnClickListener(this);
         ll_b_shop.setOnClickListener(this);
         ll_b_qr_scn.setOnClickListener(this);
+        ll_payment.setOnClickListener(this);
+        ll_fund_transfer.setOnClickListener(this);
+        ll_send_money.setOnClickListener(this);
+        ll_add_money.setOnClickListener(this);
 
         assignViewPager();
         assignDiscountViewPager();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.ll_payment:
+                Toast.makeText(MainActivity.this, "Coming soon Payment", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.ll_fund_transfer:
+                startActivity(new Intent(this,AddBeneficiaryActivity.class));
+                break;
+
+            case R.id.ll_send_money:
+                Toast.makeText(MainActivity.this, "Coming soon Send Money", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.ll_add_money:
+                Toast.makeText(MainActivity.this, "Coming soon Add Money", Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 
     @Override
@@ -351,11 +382,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onClickCategoryItem(AllListData allListData) {
         startActivity(new Intent(MainActivity.this, RechargeAndPayBillsActivity.class));
         Toast.makeText(MainActivity.this, allListData.name, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onClick(View view) {
-        Toast.makeText(MainActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
     }
 
     @Override

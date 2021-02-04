@@ -45,6 +45,7 @@
                 </LinearLayout>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/card_nsdpay_wallet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/sp_15"
@@ -62,9 +63,9 @@
                             android:layout_width="0sp"
                             android:layout_height="@dimen/diemen_60dp"
                             android:layout_weight="0.2"
+                            android:gravity="start|center"
                             android:paddingTop="@dimen/sp_5"
-                            android:paddingBottom="@dimen/sp_5"
-                            android:gravity="start|center">
+                            android:paddingBottom="@dimen/sp_5">
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -108,6 +109,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/card_domestic_wallet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/sp_15"

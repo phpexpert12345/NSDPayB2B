@@ -1,6 +1,7 @@
 package com.example.nsd.pay.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +23,7 @@ public class ChooseTransferTypeActivity extends AppCompatActivity implements Vie
     public RecyclerView rv_recent_history;
     public RecyclerView.Adapter mRecentHistory;
     public ContactInterface contactInterface;
+    public CardView card_nsdpay_wallet, card_domestic_wallet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,8 @@ public class ChooseTransferTypeActivity extends AppCompatActivity implements Vie
         img_back = findViewById(R.id.img_back);
         tv_toolbar_name = findViewById(R.id.tv_toolbar_name);
         tv_toolbar_name.setText("Transfer");
+        card_nsdpay_wallet = findViewById(R.id.card_nsdpay_wallet);
+        card_domestic_wallet = findViewById(R.id.card_domestic_wallet);
 
         rv_recent_history = findViewById(R.id.rv_recent_history);
         rv_recent_history.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
@@ -43,6 +47,8 @@ public class ChooseTransferTypeActivity extends AppCompatActivity implements Vie
         rv_recent_history.setAdapter(mRecentHistory);
 
         img_back.setOnClickListener(this);
+        card_nsdpay_wallet.setOnClickListener(this);
+        card_domestic_wallet.setOnClickListener(this);
     }
 
     @Override
@@ -50,6 +56,10 @@ public class ChooseTransferTypeActivity extends AppCompatActivity implements Vie
         switch (view.getId()) {
             case R.id.img_back:
                 finish();
+                break;
+            case R.id.card_nsdpay_wallet:
+            case R.id.card_domestic_wallet:
+                startActivity(new Intent(ChooseTransferTypeActivity.this, PayToActivity.class));
                 break;
         }
     }

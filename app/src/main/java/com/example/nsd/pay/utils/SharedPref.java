@@ -12,6 +12,7 @@ public class SharedPref {
     public final String ACCESS_TOKEN = "accessToken";
     public final String FIREBASE_TOKEN = "FirebaseToken";
     public final String S_KEY = "key";
+    public final String COMMON_OTP_CHECK = "common_otp_check";
 
 
     public SharedPref(Context context) {

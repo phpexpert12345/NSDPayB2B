@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nsd.pay.BaseApp;
 import com.example.nsd.pay.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.hbb20.CountryCodePicker;
@@ -61,6 +62,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
             case R.id.bt_next:
                 clickPaymentBySheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+              //  BaseApp.getInstance().sharedPref().setString(BaseApp.getInstance().sharedPref().COMMON_OTP_CHECK, "signup");
                 startActivity(new Intent(this, OtpVerificationActivity.class));
                 break;
 

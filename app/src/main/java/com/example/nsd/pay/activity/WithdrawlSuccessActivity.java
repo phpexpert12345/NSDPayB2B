@@ -37,7 +37,7 @@ public class WithdrawlSuccessActivity extends AppCompatActivity implements View.
         bt_goto_home.setOnClickListener(this);
 
         YoYo.with(Techniques.Landing)//Landing FadeIn
-                .duration(3600)
+                .duration(1800)
                 .repeat(0)
                 .playOn(img_background);
 

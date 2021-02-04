@@ -119,7 +119,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 // startActivity(new Intent(this, AddBeneficiaryActivity.class));
                 break;
             case R.id.bt_next:
-                startActivity(new Intent(this, AddBeneficiaryActivity.class));
+                // startActivity(new Intent(this, AddBeneficiaryActivity.class));
+                startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.ll_logout:
                 clickLogout.setState(BottomSheetBehavior.STATE_EXPANDED);
