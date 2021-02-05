@@ -76,15 +76,21 @@
                             android:layout_width="0sp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.2"
-                            android:gravity="center|start">
+                            android:gravity="center|start"
+                            android:orientation="horizontal">
 
-                            <com.hbb20.CountryCodePicker
-                                android:id="@+id/ccpicker"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:ccp_contentColor="@color/dark_green"
-                                app:ccp_textSize="@dimen/sp_12" />
+                            <ImageView
+                                android:layout_width="@dimen/sp_22"
+                                android:layout_height="@dimen/sp_25"
+                                android:src="@drawable/flag" />
 
+                            <ImageView
+                                android:layout_width="@dimen/sp_20"
+                                android:layout_height="@dimen/sp_17"
+                                android:layout_marginLeft="@dimen/sp_8"
+                                android:rotation="90"
+                                android:src="@drawable/ic_arrow_forward"
+                                app:tint="@color/dark_green" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -111,9 +117,29 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0.7dp"
-                        android:layout_marginLeft="@dimen/sp_22"
-                        android:layout_marginRight="@dimen/sp_22"
+                        android:layout_marginLeft="@dimen/sp_15"
+                        android:layout_marginRight="@dimen/sp_15"
                         android:background="@color/green" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sp_25"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/chk_terms"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_light"
+                        android:paddingLeft="@dimen/sp_5"
+                        android:shadowColor="@color/dark_green"
+                        android:text="I have read abd agree to the Terms of Use\nof NSDPAY"
+                        android:textColor="@color/dark_green"
+                        android:textSize="@dimen/sp_14" />
 
                 </LinearLayout>
 

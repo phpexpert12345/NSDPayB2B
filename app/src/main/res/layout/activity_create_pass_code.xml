@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_parant"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activity.CreatePassCodeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/common_toolbar" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/promptview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sp_10"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center"
+                    android:padding="20.0dp"
+                    android:text="Please create your Passcode"
+                    android:textColor="@color/black"
+                    android:textSize="18.0sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/sp_10"
+                    android:gravity="center">
+
+                    <com.chaos.view.PinView
+                        android:id="@+id/pinView"
+                        style="@style/PinWidget.PinView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:clickable="false"
+                        android:cursorVisible="true"
+                        android:enabled="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:hint="****"
+                        android:inputType="number"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        app:hideLineWhenFilled="true"
+                        app:itemCount="4"
+                        app:itemRadius="@dimen/sp_15"
+                        app:itemSpacing="3dp"
+                        app:lineColor="@color/white"
+                        app:lineWidth="5dp"
+                        app:viewType="none" />
+
+                </LinearLayout>
+
+                <fragment
+                    android:id="@+id/example_keyboard"
+                    class="com.example.nsd.pay.fragment.NumberBoard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sp_20"
+                    tools:layout="@layout/number_bard_fragment" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/sp_20"
+                    android:layout_marginTop="@dimen/sp_15"
+                    android:layout_marginRight="@dimen/sp_20"
+                    android:layout_marginBottom="@dimen/sp_20"
+                    android:orientation="vertical"
+                    android:padding="@dimen/sp_5">
+
+                    <Button
+                        android:id="@+id/bt_create"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/diemen_40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/green_round_bg"
+                        android:fontFamily="@font/poppins_regular"
+                        android:paddingLeft="50dp"
+                        android:paddingRight="50dp"
+                        android:text="Create"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_13"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/sp_15"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="170dp"
+            android:layout_height="3.5dp"
+            android:background="@color/black" />
+    </LinearLayout>
+
+</RelativeLayout>

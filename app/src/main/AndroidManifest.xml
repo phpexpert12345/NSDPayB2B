@@ -15,7 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.LoginWithPinFingerActivity"></activity>
+        <activity android:name=".activity.CreatePassCodeActivity"></activity>
+        <activity android:name=".activity.InformationActivity" />
+        <activity android:name=".activity.CreatePasswordActivity" />
+        <activity android:name=".activity.LoginWithPinFingerActivity" />
         <activity android:name=".activity.RechargeAndPayBillsActivity" />
         <activity android:name=".activity.WelcomeActivity" />
         <activity android:name=".activity.OtpVerificationActivity" />
@@ -37,7 +40,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.WalkThroughActivity"></activity>
+        <activity android:name=".activity.WalkThroughActivity" />
     </application>
 
 </manifest>

@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,7 +18,7 @@ import com.example.nsd.pay.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.hbb20.CountryCodePicker;
 
-public class SignupActivity extends AppCompatActivity implements View.OnClickListener, CountryCodePicker.OnCountryChangeListener {
+public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
 
     public ImageView img_back;
     public TextView tv_toolbar_name;
@@ -24,7 +26,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     public LinearLayout ll_phone_verification;
     public BottomSheetBehavior clickPaymentBySheetBehavior;
     public Button bt_cancel, bt_next;
-    public CountryCodePicker codePicker;
+    public CheckBox chk_terms;
+    public boolean check = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +43,14 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         bt_submit = findViewById(R.id.bt_submit);
         bt_cancel = findViewById(R.id.bt_cancel);
         bt_next = findViewById(R.id.bt_next);
-        codePicker = findViewById(R.id.ccpicker);
+        chk_terms = findViewById(R.id.chk_terms);
 
         img_back.setOnClickListener(this);
         bt_submit.setOnClickListener(this);
         bt_cancel.setOnClickListener(this);
         bt_next.setOnClickListener(this);
-        codePicker.setOnCountryChangeListener(this);
+
+        chk_terms.setOnCheckedChangeListener((compoundButton, b) -> check = b);
     }
 
     @Override
@@ -57,12 +61,16 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                 break;
 
             case R.id.bt_submit:
-                clickPaymentBySheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                if (check) {
+                    clickPaymentBySheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                } else {
+                    Toast.makeText(this, "Please tick check box", Toast.LENGTH_SHORT).show();
+                }
                 break;
 
             case R.id.bt_next:
                 clickPaymentBySheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-              //  BaseApp.getInstance().sharedPref().setString(BaseApp.getInstance().sharedPref().COMMON_OTP_CHECK, "signup");
+                BaseApp.getInstance().sharedPref().setString(BaseApp.getInstance().sharedPref().COMMON_OTP_CHECK, "signup");
                 startActivity(new Intent(this, OtpVerificationActivity.class));
                 break;
 
@@ -70,10 +78,5 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                 clickPaymentBySheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                 break;
         }
-    }
-
-    @Override
-    public void onCountrySelected() {
-        Toast.makeText(this, codePicker.getSelectedCountryCodeWithPlus().toString(), Toast.LENGTH_SHORT).show();
     }
 }

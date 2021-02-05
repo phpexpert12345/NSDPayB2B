@@ -16,7 +16,7 @@ import com.example.nsd.pay.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.hbb20.CountryCodePicker;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener, CountryCodePicker.OnCountryChangeListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
     public ImageView img_back;
     public TextView tv_toolbar_name;
@@ -24,7 +24,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public LinearLayout ll_phone_verification;
     public BottomSheetBehavior clickPaymentBySheetBehavior;
     public Button bt_cancel, bt_next;
-    public CountryCodePicker codePicker;
     public LinearLayout ll_register;
 
     @Override
@@ -41,7 +40,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         bt_submit = findViewById(R.id.bt_submit);
         bt_cancel = findViewById(R.id.bt_cancel);
         bt_next = findViewById(R.id.bt_next);
-        codePicker = findViewById(R.id.ccpicker);
         ll_register = findViewById(R.id.ll_register);
 
         img_back.setOnClickListener(this);
@@ -49,7 +47,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         bt_cancel.setOnClickListener(this);
         bt_next.setOnClickListener(this);
         ll_register.setOnClickListener(this);
-        codePicker.setOnCountryChangeListener(this);
     }
 
     @Override
@@ -65,8 +62,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             case R.id.bt_next:
                 clickPaymentBySheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                //  BaseApp.getInstance().sharedPref().setString(BaseApp.getInstance().sharedPref().COMMON_OTP_CHECK, "login");
-                startActivity(new Intent(this, LoginWithPinFingerActivity.class));
+                BaseApp.getInstance().sharedPref().setString(BaseApp.getInstance().sharedPref().COMMON_OTP_CHECK, "login");
+                startActivity(new Intent(this, OtpVerificationActivity.class));
                 break;
 
             case R.id.bt_cancel:
@@ -77,10 +74,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(this, SignupActivity.class));
                 break;
         }
-    }
-
-    @Override
-    public void onCountrySelected() {
-        Toast.makeText(this, codePicker.getSelectedCountryCodeWithPlus().toString(), Toast.LENGTH_SHORT).show();
     }
 }
