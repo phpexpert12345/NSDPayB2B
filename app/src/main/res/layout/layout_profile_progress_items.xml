@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/sp_6"
+    app:cardElevation="@dimen/sp_5"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/green_rectangle_bg"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_parant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/sp_8">
+
+            <LinearLayout
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_margin="5dp">
+
+                <ImageView
+                    android:id="@+id/img_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:padding="8dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/payments_icon" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_doc_typ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sp_10"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:gravity="center"
+                android:text="Pan / aadhar card"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_17" />
+
+            <TextView
+                android:id="@+id/tv_doc_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sp_10"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:text="Helps your friends Find\nyou Easily"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_16" />
+
+            <TextView
+                android:id="@+id/tv_action"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sp_10"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:gravity="center"
+                android:text="Upload"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_18" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

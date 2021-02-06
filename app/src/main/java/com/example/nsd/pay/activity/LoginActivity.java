@@ -16,7 +16,7 @@ import com.example.nsd.pay.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.hbb20.CountryCodePicker;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     public ImageView img_back;
     public TextView tv_toolbar_name;

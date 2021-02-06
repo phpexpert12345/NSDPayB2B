@@ -16,12 +16,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nsd.pay.R;
+import com.example.nsd.pay.activity.informationUpdate.ProfileSetupActivity;
 import com.example.nsd.pay.adapter.AllCategoryAdapter;
 import com.example.nsd.pay.adapter.CashBackOfferAdapter;
 import com.example.nsd.pay.adapter.DiscountOfferPagerAdapter;
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public RecyclerView.Adapter mCashBackOffers;
     public CashBackOfferInterface cashBackOfferInterface;
     public LinearLayout ll_payment, ll_fund_transfer, ll_send_money, ll_add_money;
+    public Button bt_finish_profile_setup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,6 +145,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ll_fund_transfer = findViewById(R.id.ll_fund_transfer);
         ll_send_money = findViewById(R.id.ll_send_money);
         ll_add_money = findViewById(R.id.ll_add_money);
+        bt_finish_profile_setup = findViewById(R.id.bt_finish_profile_setup);
 
         ll_b_profile.setOnClickListener(this);
         ll_b_bank.setOnClickListener(this);
@@ -152,6 +156,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ll_fund_transfer.setOnClickListener(this);
         ll_send_money.setOnClickListener(this);
         ll_add_money.setOnClickListener(this);
+        bt_finish_profile_setup.setOnClickListener(this);
 
         assignViewPager();
         assignDiscountViewPager();
@@ -165,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.ll_fund_transfer:
-                startActivity(new Intent(this,AddBeneficiaryActivity.class));
+                startActivity(new Intent(this, AddBeneficiaryActivity.class));
                 break;
 
             case R.id.ll_send_money:
@@ -174,6 +179,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.ll_add_money:
                 Toast.makeText(MainActivity.this, "Coming soon Add Money", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.bt_finish_profile_setup:
+                startActivity(new Intent(MainActivity.this, ProfileSetupActivity.class));
                 break;
         }
     }

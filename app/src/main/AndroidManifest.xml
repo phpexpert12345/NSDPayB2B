@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.CreatePassCodeActivity"></activity>
+        <activity android:name=".activity.informationUpdate.UploadProfilePicActivity"></activity>
+        <activity android:name=".activity.informationUpdate.ProfileSetupActivity" />
+        <activity android:name=".activity.CreatePassCodeActivity" />
         <activity android:name=".activity.InformationActivity" />
         <activity android:name=".activity.CreatePasswordActivity" />
         <activity android:name=".activity.LoginWithPinFingerActivity" />
