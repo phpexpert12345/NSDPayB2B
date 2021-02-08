@@ -15,7 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.informationUpdate.UploadProfilePicActivity"></activity>
+        <activity android:name=".activity.informationUpdate.UploadIdAadhaarActivity"></activity>
+        <activity android:name=".activity.informationUpdate.UploadPanCardActivity" />
+        <activity android:name=".activity.informationUpdate.EditProfileActivity" />
+        <activity android:name=".activity.informationUpdate.UploadProfilePicActivity" />
         <activity android:name=".activity.informationUpdate.ProfileSetupActivity" />
         <activity android:name=".activity.CreatePassCodeActivity" />
         <activity android:name=".activity.InformationActivity" />

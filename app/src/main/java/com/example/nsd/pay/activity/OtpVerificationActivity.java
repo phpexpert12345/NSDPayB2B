@@ -20,10 +20,10 @@ public class OtpVerificationActivity extends AppCompatActivity implements View.O
 
     public ImageView img_back;
     public TextView tv_toolbar_name;
-    public Button bt_submit, bt_yes_login;
+    public Button bt_submit;
     public BottomSheetBehavior numberTakenSheet;
     public LinearLayout ll_number_taken_sheet;
-    public LinearLayout bt_no_cancel;
+    public LinearLayout bt_no_cancel, ll_call;
     Dialog dialog;
 
     @Override
@@ -39,10 +39,10 @@ public class OtpVerificationActivity extends AppCompatActivity implements View.O
         tv_toolbar_name.setText("Otp Verification");
         bt_submit = findViewById(R.id.bt_submit);
         bt_no_cancel = findViewById(R.id.bt_no_cancel);
-        bt_yes_login = findViewById(R.id.bt_yes_login);
+        ll_call = findViewById(R.id.ll_call);
 
         bt_no_cancel.setOnClickListener(this);
-        bt_yes_login.setOnClickListener(this);
+        ll_call.setOnClickListener(this);
 
         img_back.setOnClickListener(this);
         bt_submit.setOnClickListener(this);
@@ -59,7 +59,7 @@ public class OtpVerificationActivity extends AppCompatActivity implements View.O
                 numberTakenSheet.setState(BottomSheetBehavior.STATE_EXPANDED);
                 break;
 
-            case R.id.bt_yes_login:
+            case R.id.ll_call:
                 numberTakenSheet.setState(BottomSheetBehavior.STATE_COLLAPSED);
                 if (BaseApp.getInstance().sharedPref().getString(BaseApp.getInstance().sharedPref().COMMON_OTP_CHECK).
                         equalsIgnoreCase("login")) {

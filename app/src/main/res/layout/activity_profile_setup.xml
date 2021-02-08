@@ -40,8 +40,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/diemen_100dp"
+                    android:layout_width="@dimen/diemen_150dp"
+                    android:layout_height="@dimen/diemen_80dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/logo_black" />
 

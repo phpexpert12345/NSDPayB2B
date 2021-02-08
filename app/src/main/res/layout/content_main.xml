@@ -29,6 +29,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="137dp"
+                    android:background="@drawable/profile_bg_img"
                     android:orientation="horizontal"
                     android:padding="@dimen/sp_10">
 
@@ -39,10 +40,10 @@
                         android:orientation="vertical">
 
                         <LinearLayout
-                            android:layout_width="@dimen/diemen_70"
-                            android:layout_height="@dimen/diemen_70"
+                            android:layout_width="@dimen/diemen_55dp"
+                            android:layout_height="@dimen/diemen_60dp"
                             android:layout_margin="5dp"
-                            android:background="@drawable/light_round_bg"
+                            android:background="@mipmap/h_circle_icon"
                             android:gravity="center">
 
                             <TextView
@@ -60,7 +61,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/sp_5"
-                        android:background="@drawable/profile_bg_img"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -76,7 +76,7 @@
                                 android:gravity="start"
                                 android:text="Complete Your Profile"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/sp_16" />
+                                android:textSize="@dimen/sp_15" />
 
                             <LinearLayout
                                 android:layout_width="0sp"
@@ -101,7 +101,7 @@
                             android:gravity="start"
                             android:text="To make most of your NSDPAY\nAccount"
                             android:textColor="@color/text_color"
-                            android:textSize="@dimen/sp_14" />
+                            android:textSize="@dimen/sp_12" />
 
                         <LinearLayout
                             android:layout_width="match_parent"

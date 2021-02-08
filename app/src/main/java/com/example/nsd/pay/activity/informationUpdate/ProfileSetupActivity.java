@@ -96,17 +96,17 @@ public class ProfileSetupActivity extends AppCompatActivity implements AllCatego
     @Override
     public void onClickCategoryItem(AllListData allListData) {
         if (allListData.id.equalsIgnoreCase("1")) {
-
+            startActivity(new Intent(ProfileSetupActivity.this, UploadPanCardActivity.class));
         } else if (allListData.id.equalsIgnoreCase("2")) {
             startActivity(new Intent(ProfileSetupActivity.this, UploadProfilePicActivity.class));
         } else if (allListData.id.equalsIgnoreCase("3")) {
-
+            startActivity(new Intent(ProfileSetupActivity.this, EditProfileActivity.class));
         } else if (allListData.id.equalsIgnoreCase("4")) {
-
+            startActivity(new Intent(ProfileSetupActivity.this, EditProfileActivity.class));
         } else if (allListData.id.equalsIgnoreCase("5")) {
-
+            startActivity(new Intent(ProfileSetupActivity.this, UploadIdAadhaarActivity.class));
         } else if (allListData.id.equalsIgnoreCase("6")) {
-
+            startActivity(new Intent(ProfileSetupActivity.this, UploadIdAadhaarActivity.class));
         }
     }
 

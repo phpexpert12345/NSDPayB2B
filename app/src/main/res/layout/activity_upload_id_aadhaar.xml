@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_parant"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".activity.informationUpdate.UploadIdAadhaarActivity">
+
+    <include layout="@layout/common_toolbar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/sp_20">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sp_15"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Document Type"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_18" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sp_5"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Aadhar">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_light"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_16" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="@dimen/sp_20"
+                    android:layout_weight="0.2"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="end">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/sp_14"
+                        android:src="@mipmap/up_down_icon" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sp_5"
+                android:hint="Aadhar Number">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_16" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sp_5"
+                android:hint="Re-Enter Aadhar Number">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_16" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sp_15"
+                app:cardBackgroundColor="@color/light_too_green"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/img_aadhar_front_card"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/diemen_150dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/payare"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/sp_10"
+                        android:fontFamily="@font/poppins_regular"
+                        android:padding="@dimen/sp_5"
+                        android:text="Upload Front of Aadhar Card"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/sp_16" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/sp_5"
+                        android:paddingRight="@dimen/sp_5"
+                        android:paddingBottom="@dimen/sp_15">
+
+                        <LinearLayout
+                            android:layout_width="0sp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.8"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_light"
+                                android:text="On mobile simple drag and drop your file in this field.Acceptable format JPEG or PNG."
+                                android:textColor="@color/text_color"
+                                android:textSize="@dimen/sp_12" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_upload_aadhar_front"
+                            android:layout_width="0sp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/diemen_45dp"
+                                android:layout_height="@dimen/diemen_50dp"
+                                android:background="@color/light_green"
+                                android:padding="@dimen/sp_8"
+                                android:src="@mipmap/upload_icon" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sp_15"
+                app:cardBackgroundColor="@color/light_too_green"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/img_aadhar_back_card"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/diemen_150dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/payare"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/sp_10"
+                        android:fontFamily="@font/poppins_regular"
+                        android:padding="@dimen/sp_5"
+                        android:text="Upload Back of Aadhar Card"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/sp_16" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/sp_5"
+                        android:paddingRight="@dimen/sp_5"
+                        android:paddingBottom="@dimen/sp_15">
+
+                        <LinearLayout
+                            android:layout_width="0sp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.8"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_light"
+                                android:text="On mobile simple drag and drop your file in this field.Acceptable format JPEG or PNG."
+                                android:textColor="@color/text_color"
+                                android:textSize="@dimen/sp_12" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_upload_aadhar_back"
+                            android:layout_width="0sp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/diemen_45dp"
+                                android:layout_height="@dimen/diemen_50dp"
+                                android:background="@color/light_green"
+                                android:padding="@dimen/sp_8"
+                                android:src="@mipmap/upload_icon" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sp_15"
+                app:cardBackgroundColor="@color/light_too_green"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/img_aadhar_with_selfie"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/diemen_150dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/aadhar_with_selfie"
+                            android:visibility="visible" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/sp_10"
+                        android:fontFamily="@font/poppins_regular"
+                        android:padding="@dimen/sp_5"
+                        android:text="Upload selfie while holding your aadhar card"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/sp_16" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/sp_5"
+                        android:paddingRight="@dimen/sp_5"
+                        android:paddingBottom="@dimen/sp_15">
+
+                        <LinearLayout
+                            android:layout_width="0sp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.8"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_light"
+                                android:text="On mobile simple drag and drop your file in this field.Acceptable format JPEG or PNG."
+                                android:textColor="@color/text_color"
+                                android:textSize="@dimen/sp_12" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_upload_aadhar_with_selfie"
+                            android:layout_width="0sp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/diemen_45dp"
+                                android:layout_height="@dimen/diemen_50dp"
+                                android:background="@color/light_green"
+                                android:padding="@dimen/sp_8"
+                                android:src="@mipmap/upload_icon" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sp_15"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Ready to submit your application ?"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_18" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sp_5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Pleaseverify the details you're submitting. Once submitted, you won't be able to change it unless you Contact us."
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/sp_14" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/diemen_50dp"
+                android:paddingLeft="@dimen/diemen_50dp"
+                android:paddingRight="@dimen/diemen_50dp">
+
+                <Button
+                    android:id="@+id/bt_submit_for_verification"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/diemen_40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/sp_1"
+                    android:background="@drawable/green_round_bg"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Submit For Verification"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_16" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
