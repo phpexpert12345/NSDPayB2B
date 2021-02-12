@@ -56,7 +56,7 @@ public class ContactTransferActivity extends AppCompatActivity implements View.O
                 finish();
                 break;
             case R.id.floating_action_button:
-                Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, AddRemitterActivity.class));
                 break;
         }
     }

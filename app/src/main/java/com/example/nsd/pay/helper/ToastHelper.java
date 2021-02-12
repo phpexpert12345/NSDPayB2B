@@ -80,8 +80,8 @@ public class ToastHelper {
             View sbView = snackbar.getView();
             TextView textView = sbView.findViewById(R.id.snackbar_text);
             textView.setTextColor(sbView.getResources().getColor(R.color.white));
-            textView.setTextSize(20);
-            snackbar.setBackgroundTint(sbView.getResources().getColor(R.color.dark_pink));
+            textView.setTextSize(16);
+            snackbar.setBackgroundTint(sbView.getResources().getColor(R.color.green));
             snackbar.show();
 
         } catch (Exception e) {

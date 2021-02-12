@@ -53,7 +53,6 @@ public class SubCategoryPagerAdapter extends PagerAdapter {
         AllItemsAdapter allItemsAdapter = new AllItemsAdapter(context, simage.get(position).pInfoList);
         rv_sub_category.setHasFixedSize(true);
         rv_sub_category.setLayoutManager(new GridLayoutManager(context, 4));
-
         rv_sub_category.setAdapter(allItemsAdapter);
         rv_sub_category.setNestedScrollingEnabled(false);
 

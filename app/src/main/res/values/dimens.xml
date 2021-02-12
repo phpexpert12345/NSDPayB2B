@@ -116,6 +116,6 @@
     <dimen name="diemen_25p">25dp</dimen>
 
     <!--    Number Board -->
-    <dimen name="passcode_btn">70dp</dimen>
+    <dimen name="passcode_btn">60sp</dimen>
     <dimen name="passcode_btn_margin">10dp</dimen>
 </resources>

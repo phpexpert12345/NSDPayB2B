@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/green_rectangle_bg"
-    android:minHeight="@dimen/diemen_70"
+    android:minHeight="@dimen/diemen_60dp"
     local:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -37,10 +37,10 @@
 
             <ImageView
                 android:id="@+id/img_toll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/sp_10"
-                android:src="@mipmap/logo_icon" />
+                android:layout_width="65dp"
+                android:layout_height="@dimen/diemen_50dp"
+                android:layout_marginLeft="@dimen/sp_5"
+                android:src="@drawable/nsd_tollbar_logo_icon" />
 
             <TextView
                 android:id="@+id/tv_toolbar_name"

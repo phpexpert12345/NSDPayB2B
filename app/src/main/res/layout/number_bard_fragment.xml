@@ -17,7 +17,6 @@
             android:layout_height="wrap_content"
             android:gravity="center">
 
-
             <LinearLayout
                 android:id="@+id/one_btn"
                 android:layout_width="@dimen/passcode_btn"
@@ -243,14 +242,15 @@
 
                 <ImageView
                     android:id="@+id/delete_btn"
-                    android:layout_width="@dimen/diemen_40dp"
-                    android:layout_height="@dimen/diemen_50dp"
+                    android:layout_width="@dimen/diemen_30dp"
+                    android:layout_height="@dimen/diemen_30dp"
                     android:layout_margin="@dimen/passcode_btn_margin"
                     android:contentDescription="@string/clear"
                     android:background="@null"
                     android:padding="@dimen/sp_2"
                     android:hapticFeedbackEnabled="true"
-                    android:src="@drawable/ic_action_backspace" />
+                    app:tint="@color/text_color"
+                    android:src="@drawable/ic_clear_black_24dp" />
             </LinearLayout>
 
             <LinearLayout

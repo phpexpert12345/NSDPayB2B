@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
-    app:cardCornerRadius="@dimen/sp_3"
+    app:cardCornerRadius="@dimen/sp_5"
     app:cardElevation="5dp"
     app:cardUseCompatPadding="true"
     app:contentPadding="@dimen/sp_10">
@@ -33,8 +33,8 @@
                     android:orientation="horizontal">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="@dimen/diemen_60dp"
-                        android:layout_height="@dimen/diemen_60dp"
+                        android:layout_width="62dp"
+                        android:layout_height="62dp"
                         android:src="@drawable/payare" />
 
                 </LinearLayout>
@@ -62,7 +62,7 @@
                                 android:fontFamily="@font/poppins_light"
                                 android:text="Paid for order to Kamal singh"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/sp_16" />
+                                android:textSize="@dimen/sp_15" />
 
                         </LinearLayout>
 
@@ -79,7 +79,7 @@
                                 android:fontFamily="@font/poppins_light"
                                 android:text="-INR 200"
                                 android:textColor="@color/green"
-                                android:textSize="@dimen/sp_18" />
+                                android:textSize="@dimen/sp_16" />
                         </LinearLayout>
 
                     </LinearLayout>

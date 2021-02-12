@@ -289,7 +289,7 @@
                     android:layout_height="@dimen/diemen_40dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="@dimen/sp_1"
-                    android:background="@drawable/green_round_bg"
+                    android:background="@drawable/button_bg"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Update"
                     android:textAllCaps="true"

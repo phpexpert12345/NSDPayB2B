@@ -67,11 +67,10 @@
                     android:paddingRight="@dimen/sp_3">
 
                     <Button
-                        android:layout_width="match_parent"
+                        android:layout_width="@dimen/diemen_70"
                         android:layout_height="@dimen/diemen_33dp"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/sp_1"
-                        android:background="@drawable/green_round_bg"
+                        android:background="@drawable/button_bg"
                         android:fontFamily="@font/poppins_regular"
                         android:text="Verified"
                         android:textAllCaps="false"
@@ -166,8 +165,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/diemen_40dp"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/sp_1"
-                        android:background="@drawable/green_round_bg"
+                        android:background="@drawable/button_bg"
                         android:fontFamily="@font/poppins_regular"
                         android:text="Submit"
                         android:textAllCaps="false"

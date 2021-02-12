@@ -18,7 +18,6 @@
             android:id="@+id/img_back"
             android:layout_width="@dimen/sp_25"
             android:layout_height="@dimen/sp_20"
-            android:layout_marginRight="@dimen/sp_5"
             android:src="@mipmap/cross_icon"
             app:tint="@color/black" />
 
@@ -53,25 +52,45 @@
                     android:gravity="start"
                     android:text="Complete Your Profile"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/sp_20" />
+                    android:textSize="@dimen/sp_17" />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/sp_10"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="end"
-                    android:text="10%"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sp_20" />
+                    android:layout_marginTop="@dimen/sp_15"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
+                    <com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar
+                        android:id="@+id/profile_progress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8"
+                        android:indeterminate="false"
+                        android:progress="30"
+                        app:backgroundColor="@color/grey_200"
+                        app:progressColor="@color/green" />
+
+                    <TextView
+                        android:id="@+id/tv_profile_progress"
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="end"
+                        android:text="10%"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_20" />
+
+                </LinearLayout>
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_profile_option"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/sp_15" />
+                android:layout_marginTop="@dimen/sp_10" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

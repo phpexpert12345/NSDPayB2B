@@ -1,6 +1,7 @@
 package com.example.nsd.pay.activity.informationUpdate;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,11 +9,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.nsd.pay.R;
 import com.example.nsd.pay.adapter.ProfileProgressAdapter;
 import com.example.nsd.pay.interfaces.AllCategoryInterface;
 import com.example.nsd.pay.model.AllListData;
+import com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar;
 
 import java.util.ArrayList;
 
@@ -23,6 +26,8 @@ public class ProfileSetupActivity extends AppCompatActivity implements AllCatego
     public RecyclerView.Adapter mAllCategory;
     public AllCategoryInterface allCategoryInterface;
     public ArrayList<AllListData> allCategoryList = new ArrayList<>();
+    public TextView tv_profile_progress;
+    private RoundedHorizontalProgressBar profile_progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,11 @@ public class ProfileSetupActivity extends AppCompatActivity implements AllCatego
 
         mAllCategory = new ProfileProgressAdapter(ProfileSetupActivity.this, allCategoryList, allCategoryInterface);
         rv_profile_option.setAdapter(mAllCategory);
+
+        tv_profile_progress = findViewById(R.id.tv_profile_progress);
+        profile_progress = findViewById(R.id.profile_progress);
+        tv_profile_progress.setText("40%");
+        profile_progress.animateProgress(1000, 0, 60);
 
         img_back.setOnClickListener(this);
     }
