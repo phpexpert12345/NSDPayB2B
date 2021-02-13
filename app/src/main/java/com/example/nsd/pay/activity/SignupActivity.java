@@ -92,7 +92,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.bt_next:
                 clickPaymentBySheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                 BaseApp.getInstance().sharedPref().setString(BaseApp.getInstance().sharedPref().COMMON_OTP_CHECK, "signup");
-                resendOtp(ed_mobile_number.getText().toString().trim());
+                saveContactNumber(ed_mobile_number.getText().toString().trim());
                 break;
 
             case R.id.bt_cancel:
@@ -101,10 +101,10 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    private void resendOtp(String mobileNumber) {
+    private void saveContactNumber(String mobileNumber) {
         callLoadingDialog(this, SignupActivity.this, R.drawable.test, "Please Wait...");
         ApiService apiService = ApiClient.getClient(this).create(ApiService.class);
-        BaseApp.getInstance().getDisposable().add(apiService.resendOtp(mobileNumber)
+        BaseApp.getInstance().getDisposable().add(apiService.saveContactNumber(mobileNumber)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSingleObserver<ResponseModel>() {
@@ -112,7 +112,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                     public void onSuccess(ResponseModel response) {
                         alertDialog.dismiss();
                         clickPaymentBySheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-                        if (response.data.status) {
+                        if (response.status) {
                             try {
                                 startActivity(new Intent(SignupActivity.this, OtpVerificationActivity.class).
                                         putExtra("MOBILE_NUMBER", ed_mobile_number.getText().toString().trim()));
@@ -122,7 +122,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                             }
                         } else {
                             BaseApp.getInstance().toastHelper().showSnackBar(ed_mobile_number,
-                                    response.data.message, false);
+                                    response.message, false);
                         }
                     }
 

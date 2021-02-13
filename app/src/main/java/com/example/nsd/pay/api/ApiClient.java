@@ -21,7 +21,7 @@ import static com.example.nsd.pay.BaseApp.Code;
 
 public class ApiClient {
 
-    public static final String BASE_URL = "http://nsdpay.in/nsdpay/";
+    public static final String BASE_URL = "http://nsdpay.in/";
     public static String ImagePath = BASE_URL;
     private static Retrofit retrofit = null;
     private static int REQUEST_TIMEOUT = 60;

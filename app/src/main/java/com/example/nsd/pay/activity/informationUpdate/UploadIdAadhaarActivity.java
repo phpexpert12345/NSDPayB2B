@@ -16,8 +16,8 @@ public class UploadIdAadhaarActivity extends AppCompatActivity implements View.O
     public ImageView img_back;
     public TextView tv_toolbar_name;
     public Button bt_submit_for_verification;
-    public ImageView img_aadhar_front_card, img_aadhar_back_card, img_aadhar_with_selfie;
-    public LinearLayout ll_upload_aadhar_front, ll_upload_aadhar_back, ll_upload_aadhar_with_selfie;
+    public ImageView img_aadhar_front_card, img_aadhar_back_card;
+    public LinearLayout ll_upload_aadhar_front, ll_upload_aadhar_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +30,13 @@ public class UploadIdAadhaarActivity extends AppCompatActivity implements View.O
         bt_submit_for_verification = findViewById(R.id.bt_submit_for_verification);
         img_aadhar_front_card = findViewById(R.id.img_aadhar_front_card);
         img_aadhar_back_card = findViewById(R.id.img_aadhar_back_card);
-        img_aadhar_with_selfie = findViewById(R.id.img_aadhar_with_selfie);
         ll_upload_aadhar_front = findViewById(R.id.ll_upload_aadhar_front);
         ll_upload_aadhar_back = findViewById(R.id.ll_upload_aadhar_back);
-        ll_upload_aadhar_with_selfie = findViewById(R.id.ll_upload_aadhar_with_selfie);
 
         img_back.setOnClickListener(this);
         bt_submit_for_verification.setOnClickListener(this);
         ll_upload_aadhar_front.setOnClickListener(this);
         ll_upload_aadhar_back.setOnClickListener(this);
-        ll_upload_aadhar_with_selfie.setOnClickListener(this);
     }
 
     @Override
@@ -57,9 +54,6 @@ public class UploadIdAadhaarActivity extends AppCompatActivity implements View.O
                 break;
 
             case R.id.ll_upload_aadhar_back:
-                break;
-
-            case R.id.ll_upload_aadhar_with_selfie:
                 break;
         }
     }

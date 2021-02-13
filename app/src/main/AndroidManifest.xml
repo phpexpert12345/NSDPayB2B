@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.informationUpdate.UploadIdAadhaarActivity"></activity>
+        <activity android:name=".activity.informationUpdate.IdProofActivity"></activity>
+        <activity android:name=".activity.informationUpdate.AddAddressActivity" />
+        <activity android:name=".activity.informationUpdate.UploadIdAadhaarActivity" />
         <activity android:name=".activity.informationUpdate.UploadPanCardActivity" />
         <activity android:name=".activity.informationUpdate.EditProfileActivity" />
         <activity android:name=".activity.informationUpdate.UploadProfilePicActivity" />

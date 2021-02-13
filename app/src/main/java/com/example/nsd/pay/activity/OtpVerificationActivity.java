@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -41,6 +42,7 @@ public class OtpVerificationActivity extends AppCompatActivity implements View.O
     public LinearLayout bt_no_cancel, ll_call;
     public PinView pinView;
     Dialog dialog;
+    public TextView otpReadRemainingTime, btn_resendOtp, tv_change_number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,11 +60,19 @@ public class OtpVerificationActivity extends AppCompatActivity implements View.O
         ll_call = findViewById(R.id.ll_call);
         pinView = findViewById(R.id.pinView);
 
+        otpReadRemainingTime = findViewById(R.id.tv_otpReadRemainingTime);
+        btn_resendOtp = findViewById(R.id.btn_resendOtp);
+        tv_change_number = findViewById(R.id.tv_change_number);
+
         bt_no_cancel.setOnClickListener(this);
         ll_call.setOnClickListener(this);
 
+        btn_resendOtp.setOnClickListener(this);
+        tv_change_number.setOnClickListener(this);
         img_back.setOnClickListener(this);
         bt_submit.setOnClickListener(this);
+
+        startTimer();
     }
 
     @Override
@@ -75,7 +85,13 @@ public class OtpVerificationActivity extends AppCompatActivity implements View.O
             case R.id.bt_submit:
                 if (!TextUtils.isEmpty(pinView.getText().toString())) {
                     //numberTakenSheet.setState(BottomSheetBehavior.STATE_EXPANDED);
-                    resendOtp(getIntent().getStringExtra("MOBILE_NUMBER"), pinView.getText().toString().trim());
+                    if (BaseApp.getInstance().sharedPref().getString(BaseApp.getInstance().sharedPref().COMMON_OTP_CHECK).
+                            equalsIgnoreCase("login")) {
+                        startActivity(new Intent(this, WelcomeActivity.class));
+                    } else {
+                        otpVerify(getIntent().getStringExtra("MOBILE_NUMBER"), pinView.getText().toString().trim());
+                        startTimer();
+                    }
                 } else {
                     BaseApp.getInstance().toastHelper().showSnackBar(pinView,
                             "Please Enter valid OTP", false);
@@ -95,10 +111,19 @@ public class OtpVerificationActivity extends AppCompatActivity implements View.O
             case R.id.bt_no_cancel:
                 numberTakenSheet.setState(BottomSheetBehavior.STATE_COLLAPSED);
                 break;
+
+            case R.id.btn_resendOtp:
+                resendOtp(getIntent().getStringExtra("MOBILE_NUMBER"));
+                startTimer();
+                break;
+
+            case R.id.tv_change_number:
+
+                break;
         }
     }
 
-    private void resendOtp(String mobileNumber, String otp) {
+    private void otpVerify(String mobileNumber, String otp) {
         callLoadingDialog(this, OtpVerificationActivity.this, R.drawable.test, "Please Wait...");
         ApiService apiService = ApiClient.getClient(this).create(ApiService.class);
         BaseApp.getInstance().getDisposable().add(apiService.otpVerify(mobileNumber, otp)
@@ -108,13 +133,20 @@ public class OtpVerificationActivity extends AppCompatActivity implements View.O
                     @Override
                     public void onSuccess(ResponseModel response) {
                         alertDialog.dismiss();
-                        if (response.data.status) {
+                        if (response.status) {
                             try {
+                                if (BaseApp.getInstance().sharedPref().getString(BaseApp.getInstance().sharedPref().COMMON_OTP_CHECK).
+                                        equalsIgnoreCase("login")) {
+                                    startActivity(new Intent(OtpVerificationActivity.this, WelcomeActivity.class));
+                                } else {
+                                    startActivity(new Intent(OtpVerificationActivity.this, CreatePasswordActivity.class));
+                                }
+                                Toast.makeText(OtpVerificationActivity.this, response.message, Toast.LENGTH_LONG).show();
                             } catch (Exception e) {
                             }
                         } else {
                             BaseApp.getInstance().toastHelper().showSnackBar(pinView,
-                                    response.data.message, false);
+                                    response.message, false);
                         }
                     }
 
@@ -125,6 +157,58 @@ public class OtpVerificationActivity extends AppCompatActivity implements View.O
                     }
                 }));
     }
+
+    private void resendOtp(String mobileNumber) {
+        callLoadingDialog(this, OtpVerificationActivity.this, R.drawable.test, "Please Wait...");
+        ApiService apiService = ApiClient.getClient(this).create(ApiService.class);
+        BaseApp.getInstance().getDisposable().add(apiService.resendOtp(mobileNumber)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSingleObserver<ResponseModel>() {
+                    @Override
+                    public void onSuccess(ResponseModel response) {
+                        alertDialog.dismiss();
+                        if (response.status) {
+                            try {
+                                startTimer();
+                                Toast.makeText(OtpVerificationActivity.this, response.data.otp, Toast.LENGTH_LONG).show();
+                            } catch (Exception e) {
+                            }
+                        } else {
+                            BaseApp.getInstance().toastHelper().showSnackBar(pinView,
+                                    response.message, false);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        alertDialog.dismiss();
+                        Log.d(TAG, e.getMessage());
+                    }
+                }));
+    }
+
+    private void startTimer() {
+        btn_resendOtp.setVisibility(View.GONE);
+        otpReadRemainingTime.setVisibility(View.VISIBLE);
+        countDownTimer.start();
+    }
+
+    CountDownTimer countDownTimer = new CountDownTimer(1 * 30000, 1000) {
+        @Override
+        public void onTick(long millisUntilFinished) {
+            int seconds = (int) (millisUntilFinished / 1000);
+            int minutes = seconds / 60;
+            seconds = seconds % 60;
+            otpReadRemainingTime.setText("" + String.format("%02d", minutes) + ":" + String.format("%02d", seconds));
+        }
+
+        @Override
+        public void onFinish() {
+            btn_resendOtp.setVisibility(View.VISIBLE);
+            otpReadRemainingTime.setVisibility(View.GONE);
+        }
+    };
 
     private void dialogOpen() {
         dialog = new Dialog(this);

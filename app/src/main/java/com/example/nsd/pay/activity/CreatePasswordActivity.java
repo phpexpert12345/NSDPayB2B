@@ -29,7 +29,7 @@ public class CreatePasswordActivity extends AppCompatActivity implements View.On
 
         img_back = findViewById(R.id.img_back);
         tv_toolbar_name = findViewById(R.id.tv_toolbar_name);
-        tv_toolbar_name.setText("Otp Verification");
+        tv_toolbar_name.setText("Create Password");
         bt_submit = findViewById(R.id.bt_submit);
         et_password = findViewById(R.id.et_password);
         ShowHidePasswordBtn = findViewById(R.id.show_hide_password_forgetPass);

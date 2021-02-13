@@ -56,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/sp_5"
-                android:hint="Re-Enter Pan Number">
+                android:hint="Re Enter Pan Number">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"

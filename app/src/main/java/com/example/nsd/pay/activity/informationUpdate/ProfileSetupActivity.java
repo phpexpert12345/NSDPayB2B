@@ -110,13 +110,13 @@ public class ProfileSetupActivity extends AppCompatActivity implements AllCatego
         } else if (allListData.id.equalsIgnoreCase("2")) {
             startActivity(new Intent(ProfileSetupActivity.this, UploadProfilePicActivity.class));
         } else if (allListData.id.equalsIgnoreCase("3")) {
-            startActivity(new Intent(ProfileSetupActivity.this, EditProfileActivity.class));
+            startActivity(new Intent(ProfileSetupActivity.this, AddAddressActivity.class));
         } else if (allListData.id.equalsIgnoreCase("4")) {
             startActivity(new Intent(ProfileSetupActivity.this, EditProfileActivity.class));
         } else if (allListData.id.equalsIgnoreCase("5")) {
             startActivity(new Intent(ProfileSetupActivity.this, UploadIdAadhaarActivity.class));
         } else if (allListData.id.equalsIgnoreCase("6")) {
-            startActivity(new Intent(ProfileSetupActivity.this, UploadIdAadhaarActivity.class));
+            startActivity(new Intent(ProfileSetupActivity.this, IdProofActivity.class));
         }
     }
 
